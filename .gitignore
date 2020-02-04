@@ -1,0 +1,5 @@
+/flaskApp1/bin/*
+/flaskApp1/lib/**/*
+/flaskApp1/__pycache__/*
+/flaskApp1/include
+/flaskApp1/*.pyc

@@ -31,10 +31,18 @@ def index():
 def info():
     return render_template("info.html",title="ABOUT")
 
-@app.route("/login")
+@app.route("/login",methods=["GET", "POST"])
 def login():
-    return render_template("login.html",title="LOG IN")
+    form = Login()
+    if form.validate_on_submit():
+        flash(" you have succesfully logged in {}".format(form.email.data),"success")
+        return redirect(url_for('index'))
+    return render_template("login.html",title="LOG IN",form=form)
 
-@app.route("/register")
+@app.route("/register",methods=["GET", "POST"])
 def register():
-    return render_template("register.html",title="REGISTER")
+    form = Register()
+    if form.validate_on_submit():
+        flash(" you have successfully registered {}".format(form.username.data),"success")
+        return redirect(url_for('index'))
+    return render_template("register.html",title="REGISTRATION",form = form)

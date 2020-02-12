@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask("__name__")
 app.config["SECRET_KEY"] = "9e881d1a94b2125d8df30ab584403075"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
+
 db = SQLAlchemy(app)
 
 posts = [
